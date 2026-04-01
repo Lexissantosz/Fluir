@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="claro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Login</title>
+
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/login.css" />
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-card">
+      <div class="brand">
+        <div class="brand-icon">
+          <span class="dot dot-left"></span>
+          <span class="curve"></span>
+          <span class="dot dot-right"></span>
+        </div>
+        <h1>Fluir</h1>
+      </div>
+
+      <div class="login-header">
+        <h2>Bem-vindo ao Fluir</h2>
+        <p>Organize seu dia com leveza.</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seuemail@exemplo.com"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha"
+            required
+          />
+        </div>
+
+        <div class="login-links">
+          <a href="#" id="forgotPassword">Esqueceu sua senha?</a>
+          <a href="#" id="registerLink">Criar conta</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="./assets/js/core/storage.js"></script>
+  <script src="./assets/js/core/session.js"></script>
+  <script src="./assets/js/core/theme.js"></script>
+  <script src="./assets/js/core/utils.js"></script>
+
+  <script src="./assets/js/services/user.service.js"></script>
+  <script src="./assets/js/services/preferences.service.js"></script>
+
+  <script src="./assets/js/ui/toast.js"></script>
+  <script src="./assets/js/app-init.js"></script>
+  <script src="./assets/js/pages/auth.js"></script>
+</body>
+</html>

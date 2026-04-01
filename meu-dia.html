@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="claro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Meu dia</title>
+
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/dashboard.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <span class="dot dot-left"></span>
+          <span class="curve"></span>
+          <span class="dot dot-right"></span>
+        </div>
+        <h1>Fluir</h1>
+      </div>
+
+      <nav class="sidebar-nav">
+       <a href="dashboard.html" class="nav-item">Início</a>
+<a href="meu-dia.html" class="nav-item">Meu dia</a>
+<a href="tarefas.html" class="nav-item">Tarefas</a>
+<a href="planejamento.html" class="nav-item">Planejamento</a>
+<a href="historico.html" class="nav-item">Histórico</a>
+<a href="configuracoes.html" class="nav-item">Configurações</a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div>
+          <strong id="sidebarUserName">Usuário</strong>
+          <span>Conta ativa</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h2>Seu dia, no seu ritmo</h2>
+          <p>Vamos escolher o que faz sentido agora.</p>
+        </div>
+
+        <button id="logoutBtn" class="btn-outline">Sair</button>
+      </header>
+
+      <section class="card">
+        <div class="card-header">
+          <h3>Como você está agora?</h3>
+        </div>
+
+        <div class="energy-buttons">
+          <button class="energy-btn" data-energy="baixa">Baixa</button>
+<button class="energy-btn" data-energy="media">Média</button>
+<button class="energy-btn" data-energy="alta">Alta</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h3>Tempo disponível</h3>
+        </div>
+
+        <div class="energy-buttons">
+          <button class="time-btn" data-time="15">15 min</button>
+          <button class="time-btn" data-time="30">30 min</button>
+          <button class="time-btn" data-time="60">1h</button>
+          <button class="time-btn" data-time="120">2h</button>
+        </div>
+      </section>
+
+      <section class="card card-highlight">
+        <div class="card-header">
+          <h3>Sugestão para agora</h3>
+        </div>
+
+        <div id="suggestionContainer"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./assets/js/core/storage.js"></script>
+  <script src="./assets/js/core/session.js"></script>
+  <script src="./assets/js/core/auth-guard.js"></script>
+  <script src="./assets/js/core/theme.js"></script>
+  <script src="./assets/js/core/utils.js"></script>
+
+  <script src="./assets/js/services/user.service.js"></script>
+  <script src="./assets/js/services/task.service.js"></script>
+  <script src="./assets/js/services/preferences.service.js"></script>
+
+  <script src="./assets/js/ui/toast.js"></script>
+  <script src="./assets/js/app-init.js"></script>
+  <script src="./assets/js/pages/meu-dia.js"></script>
+</body>
+</html>

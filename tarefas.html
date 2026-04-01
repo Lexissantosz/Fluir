@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="claro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Tarefas</title>
+
+  <link rel="stylesheet" href="./assets/css/global.css" />
+<link rel="stylesheet" href="./assets/css/components.css" />
+<link rel="stylesheet" href="./assets/css/dashboard.css" />
+<link rel="stylesheet" href="./assets/css/tarefas.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <span class="dot dot-left"></span>
+          <span class="curve"></span>
+          <span class="dot dot-right"></span>
+        </div>
+        <h1>Fluir</h1>
+      </div>
+
+      <nav class="sidebar-nav">
+       <a href="dashboard.html" class="nav-item">Início</a>
+<a href="meu-dia.html" class="nav-item">Meu dia</a>
+<a href="tarefas.html" class="nav-item">Tarefas</a>
+<a href="planejamento.html" class="nav-item">Planejamento</a>
+<a href="historico.html" class="nav-item">Histórico</a>
+<a href="configuracoes.html" class="nav-item">Configurações</a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div>
+          <strong id="sidebarUserName">Usuário</strong>
+          <span>Conta ativa</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h2>Minhas tarefas</h2>
+          <p>Organize, filtre e acompanhe tudo com clareza.</p>
+        </div>
+
+        <button id="logoutBtn" class="btn-outline">Sair</button>
+      </header>
+
+      <section class="tasks-page">
+        <div class="card">
+          <div class="card-header">
+            <h3>Filtros</h3>
+          </div>
+
+          <div class="filters-grid">
+            <div class="field-block">
+              <label for="searchTask">Buscar tarefa</label>
+              <input type="text" id="searchTask" placeholder="Digite o nome da tarefa" />
+            </div>
+
+            <div class="field-block">
+              <label for="filterPriority">Prioridade</label>
+              <select id="filterPriority">
+                <option value="todas">Todas</option>
+                <option value="baixa">Baixa</option>
+                <option value="media">Média</option>
+                <option value="alta">Alta</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="filterEffort">Esforço</label>
+              <select id="filterEffort">
+                <option value="todos">Todos</option>
+                <option value="baixo">Baixo</option>
+                <option value="medio">Médio</option>
+                <option value="alto">Alto</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="filterStatus">Status</label>
+              <select id="filterStatus">
+                <option value="todas">Todas</option>
+                <option value="pendentes">Pendentes</option>
+                <option value="concluidas">Concluídas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Nova tarefa</h3>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <div class="form-grid">
+              <div class="field-block field-span-2">
+                <label for="taskTitle">Título</label>
+                <input type="text" id="taskTitle" required placeholder="Ex: Estudar JavaScript" />
+              </div>
+
+              <div class="field-block field-span-2">
+                <label for="taskDescription">Descrição</label>
+                <textarea id="taskDescription" rows="4" placeholder="Detalhes da tarefa"></textarea>
+              </div>
+
+              <div class="field-block">
+                <label for="taskDuration">Duração (min)</label>
+                <input type="number" id="taskDuration" min="5" value="30" required />
+              </div>
+
+              <div class="field-block">
+                <label for="taskPriority">Prioridade</label>
+                <select id="taskPriority" required>
+                  <option value="baixa">Baixa</option>
+                  <option value="media" selected>Média</option>
+                  <option value="alta">Alta</option>
+                </select>
+              </div>
+
+              <div class="field-block">
+                <label for="taskEffort">Esforço</label>
+                <select id="taskEffort" required>
+                  <option value="baixo">Baixo</option>
+                  <option value="medio" selected>Médio</option>
+                  <option value="alto">Alto</option>
+                </select>
+              </div>
+
+              <div class="field-block">
+                <label for="taskDeadline">Prazo</label>
+                <input type="date" id="taskDeadline" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary" id="saveTaskBtn">Salvar tarefa</button>
+              <button type="button" class="btn-outline" id="cancelEditBtn">Cancelar edição</button>
+            </div>
+
+            <p id="taskFormMessage" class="form-message"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Lista de tarefas</h3>
+            <span id="taskCounter" class="badge badge-energy">0 tarefas</span>
+          </div>
+
+          <div id="tasksContainer" class="task-list task-list-page"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./assets/js/core/storage.js"></script>
+<script src="./assets/js/core/session.js"></script>
+<script src="./assets/js/core/auth-guard.js"></script>
+<script src="./assets/js/core/theme.js"></script>
+<script src="./assets/js/core/utils.js"></script>
+
+<script src="./assets/js/services/user.service.js"></script>
+<script src="./assets/js/services/task.service.js"></script>
+<script src="./assets/js/services/preferences.service.js"></script>
+
+<script src="./assets/js/ui/toast.js"></script>
+<script src="./assets/js/app-init.js"></script>
+<script src="./assets/js/pages/tarefas.js"></script>
+</body>
+</html>s

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="claro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Dashboard</title>
+
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/dashboard.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <span class="dot dot-left"></span>
+          <span class="curve"></span>
+          <span class="dot dot-right"></span>
+        </div>
+        <h1>Fluir</h1>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">Início</a>
+<a href="meu-dia.html" class="nav-item">Meu dia</a>
+<a href="tarefas.html" class="nav-item">Tarefas</a>
+<a href="planejamento.html" class="nav-item">Planejamento</a>
+<a href="historico.html" class="nav-item">Histórico</a>
+<a href="configuracoes.html" class="nav-item">Configurações</a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div>
+          <strong id="sidebarUserName">Usuário</strong>
+          <span>Conta ativa</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h2 id="welcomeTitle">Boa tarde</h2>
+          <p>Vamos organizar seu dia com leveza.</p>
+        </div>
+
+        <button id="logoutBtn" class="btn-outline">Sair</button>
+      </header>
+
+      <section class="dashboard-grid">
+        <div class="main-column">
+          <div class="card card-highlight">
+            <div class="card-header">
+              <h3>Energia atual</h3>
+              <span id="energyBadge" class="badge badge-energy">Média</span>
+            </div>
+
+            <div class="field-row">
+              <div class="field-block">
+                <label for="timeAvailable">Tempo disponível</label>
+                <select id="timeAvailable">
+                  <option value="15">15 min</option>
+                  <option value="30">30 min</option>
+                  <option value="60">1h</option>
+                  <option value="120">2h</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="suggestion-box">
+              <strong>Sugestão:</strong>
+              <p id="suggestionText">Circule tarefas de esforço moderado.</p>
+            </div>
+
+            <div class="action-row">
+              <button class="btn-outline" id="refreshSuggestionBtn">Atualizar energia</button>
+              <button class="btn-primary" id="reorganizeBtn">Reorganizar dia</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Sua melhor escolha agora</h3>
+            </div>
+
+            <div class="best-task" id="bestTask"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Tarefas do dia</h3>
+              <a href="tarefas.html" class="btn-small-link">Gerenciar tarefas</a>
+            </div>
+
+            <div class="task-list" id="taskList"></div>
+          </div>
+        </div>
+
+        <div class="side-column">
+          <div class="card">
+            <div class="card-header">
+              <h3>Como você está agora?</h3>
+            </div>
+
+            <div class="energy-options">
+              <button class="energy-btn" data-energy="baixa">Baixa</button>
+              <button class="energy-btn" data-energy="media">Média</button>
+              <button class="energy-btn" data-energy="alta">Alta</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Resumo do dia</h3>
+            </div>
+
+            <div class="summary-list">
+              <p><strong id="doneCount">0</strong> concluídas</p>
+              <p><strong id="pendingCount">0</strong> pendentes</p>
+              <p><strong id="currentEnergyText">Média</strong> energia atual</p>
+              <p><strong id="productiveTime">0 min</strong> produtivas</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./assets/js/core/storage.js"></script>
+  <script src="./assets/js/core/session.js"></script>
+  <script src="./assets/js/core/auth-guard.js"></script>
+  <script src="./assets/js/core/theme.js"></script>
+  <script src="./assets/js/core/utils.js"></script>
+
+  <script src="./assets/js/services/user.service.js"></script>
+  <script src="./assets/js/services/task.service.js"></script>
+  <script src="./assets/js/services/preferences.service.js"></script>
+
+  <script src="./assets/js/ui/toast.js"></script>
+  <script src="./assets/js/app-init.js"></script>
+  <script src="./assets/js/pages/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+:root,
+html[data-theme="claro"] {
+  --bg: #f6f0eb;
+  --surface: #fffaf6;
+  --surface-2: #f2e8df;
+  --border: #e4d6ca;
+
+  --text: #4d382c;
+  --text-soft: #7d6759;
+
+  --primary: #bc9471;
+  --primary-dark: #9e7757;
+  --primary-light: #d8b89a;
+
+  --white: #ffffff;
+  --danger: #b96b6b;
+  --success: #6f8f68;
+
+  --shadow-sm: 0 8px 20px rgba(93, 62, 39, 0.08);
+  --shadow-md: 0 16px 40px rgba(93, 62, 39, 0.12);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+
+  --transition: 0.25s ease;
+}
+
+html[data-theme="escuro"] {
+  --bg: #201814;
+  --surface: #2b211c;
+  --surface-2: #352922;
+  --border: #44342c;
+
+  --text: #f3e9df;
+  --text-soft: #ccb8aa;
+
+  --primary: #c69a72;
+  --primary-dark: #ac7f59;
+  --primary-light: #dfbf9d;
+
+  --white: #ffffff;
+  --danger: #d59c96;
+  --success: #9fbc93;
+
+  --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.28);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+
+  --transition: 0.25s ease;
+}
+
+html[data-theme="sepia"] {
+  --bg: #efe2d3;
+  --surface: #fbf3eb;
+  --surface-2: #ead9c7;
+  --border: #dbc6b1;
+
+  --text: #5a4132;
+  --text-soft: #8a6e5b;
+
+  --primary: #b98a62;
+  --primary-dark: #966845;
+  --primary-light: #ddbc9c;
+
+  --white: #ffffff;
+  --danger: #b97972;
+  --success: #78936e;
+
+  --shadow-sm: 0 8px 20px rgba(93, 62, 39, 0.08);
+  --shadow-md: 0 16px 40px rgba(93, 62, 39, 0.14);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+
+  --transition: 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Nunito", "Segoe UI", Arial, sans-serif;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
