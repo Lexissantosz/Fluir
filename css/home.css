@@ -1,0 +1,1208 @@
+/* ========================================
+   VARIÁVEIS GLOBAIS - HOME
+   Cores, sombras, bordas e medidas usadas
+   na tela inicial do Fluir.
+======================================== */
+:root {
+  --bg: #f6f0eb;
+  --bg-secondary: #f3ebe5;
+  --surface: rgba(255, 250, 247, 0.78);
+  --surface-strong: rgba(255, 250, 247, 0.95);
+  --surface-soft: #fcf8f5;
+  --border: #eadbd0;
+  --border-strong: #dcc8bb;
+  --text: #70584b;
+  --text-soft: #947a6c;
+  --title: #6a4d42;
+  --primary: #c79b7c;
+  --primary-hover: #b98866;
+  --shadow-sm: 0 8px 18px rgba(110, 86, 74, 0.05);
+  --shadow-md: 0 18px 34px rgba(110, 86, 74, 0.08);
+  --shadow-lg: 0 26px 60px rgba(110, 86, 74, 0.11);
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+}
+
+/* ========================================
+   RESET BÁSICO
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   ALTURA TOTAL DA PÁGINA
+   Garante que o layout use 100% da altura
+   e que a sidebar possa ficar fixa.
+======================================== */
+html,
+body {
+  height: 100%;
+}
+
+/* ========================================
+   BODY
+   Fundo principal e trava o scroll do body,
+   deixando apenas o conteúdo principal rolar.
+======================================== */
+body {
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(226, 204, 190, 0.32), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(220, 198, 184, 0.24), transparent 30%),
+    linear-gradient(180deg, #f9f4f1 0%, #f4ece7 100%);
+  color: var(--text);
+}
+
+/* ========================================
+   PADRÃO DE FONTES PARA FORMULÁRIOS
+======================================== */
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   Divide a tela entre sidebar e conteúdo.
+======================================== */
+.app-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ========================================
+   SIDEBAR
+   Barra lateral fixa, parada na esquerda.
+======================================== */
+.sidebar {
+  background: rgba(255, 250, 247, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(220, 200, 188, 0.65);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+}
+
+/* ========================================
+   MARCA / LOGO DA SIDEBAR
+======================================== */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding: 4px 8px 0;
+}
+
+.sidebar-brand h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.3rem;
+  line-height: 1;
+  color: var(--title);
+  font-weight: 600;
+}
+
+/* ========================================
+   SÍMBOLO VISUAL DA MARCA
+======================================== */
+.brand-mark {
+  position: relative;
+  width: 62px;
+  height: 46px;
+  flex-shrink: 0;
+}
+
+.brand-sun {
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  width: 46px;
+  height: 22px;
+  border-radius: 46px 46px 0 0;
+  background: linear-gradient(180deg, #d2a989 0%, #bb9073 100%);
+}
+
+.brand-wave {
+  position: absolute;
+  border-bottom: 5px solid var(--title);
+  border-radius: 50%;
+}
+
+.brand-wave-1 {
+  top: 18px;
+  left: 2px;
+  width: 58px;
+  height: 12px;
+}
+
+.brand-wave-2 {
+  top: 27px;
+  left: 7px;
+  width: 48px;
+  height: 10px;
+  border-bottom-width: 4px;
+}
+
+/* ========================================
+   NAVEGAÇÃO DA SIDEBAR
+======================================== */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 14px;
+  border-radius: 16px;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: 0.22s ease;
+  font-weight: 500;
+}
+
+.nav-item i {
+  font-size: 1rem;
+  width: 18px;
+}
+
+.nav-item:hover {
+  background: rgba(245, 236, 231, 0.7);
+  color: var(--title);
+}
+
+.nav-item.active {
+  background: linear-gradient(180deg, #f4ebe6 0%, #efe4dc 100%);
+  color: var(--title);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* ========================================
+   BLOCO DE PERFIL NO RODAPÉ DA SIDEBAR
+======================================== */
+.sidebar-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-mini-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.profile-mini-details span {
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.profile-soft-text {
+  margin-top: 10px;
+  color: var(--title);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.profile-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f2e4d9 0%, #ead7ca 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--title);
+  flex-shrink: 0;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info strong {
+  color: var(--title);
+  font-size: 1.05rem;
+}
+
+.profile-info span {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+   Área da direita que realmente rola.
+======================================== */
+.main-content {
+  padding: 28px 28px 34px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   SCROLLBAR CUSTOMIZADA DO CONTEÚDO
+======================================== */
+.main-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #ddc7b8;
+  border-radius: 999px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ========================================
+   TOPBAR
+   Cabeçalho superior da home.
+======================================== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.topbar h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.45rem;
+  line-height: 1;
+  color: var(--title);
+  font-weight: 600;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ========================================
+   BOTÕES PRINCIPAIS DA TOPBAR
+======================================== */
+.ghost-btn,
+.primary-btn {
+  height: 50px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  transition: 0.22s ease;
+}
+
+.ghost-btn {
+  width: 50px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  color: var(--title);
+  box-shadow: var(--shadow-sm);
+}
+
+.ghost-btn:hover {
+  background: #f7eee8;
+}
+
+.primary-btn {
+  background: linear-gradient(180deg, #cea383 0%, #bf8f6e 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 14px 24px rgba(188, 141, 108, 0.22);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #c79979 0%, #b88463 100%);
+}
+
+/* ========================================
+   HERO PANEL
+   Bloco principal de destaque da home.
+======================================== */
+.hero-panel {
+  background: var(--surface);
+  border: 1px solid rgba(232, 218, 208, 0.95);
+  border-radius: 32px;
+  box-shadow: var(--shadow-lg);
+  padding: 26px;
+  display: grid;
+  grid-template-columns: 1.55fr 0.9fr;
+  gap: 22px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: #f5ece7;
+  color: var(--title);
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.hero-copy h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.55rem;
+  line-height: 1.15;
+  color: var(--title);
+  margin-bottom: 10px;
+  max-width: 760px;
+}
+
+.hero-copy p {
+  color: var(--text-soft);
+  line-height: 1.75;
+  max-width: 700px;
+}
+
+.calm-phrase {
+  margin-top: 14px;
+  max-width: 680px;
+  color: var(--title);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(234, 219, 208, 0.9);
+}
+
+/* ========================================
+   META INFORMAÇÕES DA HERO
+   Cards menores: energia, foco etc.
+======================================== */
+.hero-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.meta-card {
+  min-width: 170px;
+  padding: 16px 16px 15px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.meta-label {
+  display: block;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  margin-bottom: 7px;
+}
+
+.meta-card strong {
+  color: var(--title);
+  font-size: 1.2rem;
+}
+
+.meta-action-btn {
+  margin-top: 12px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #efe3db;
+  color: var(--title);
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.meta-action-btn:hover {
+  background: #e7d5c8;
+}
+
+/* ========================================
+   CARD VISUAL DA HERO
+   Próxima atividade / destaque lateral.
+======================================== */
+.hero-visual {
+  display: flex;
+  align-items: stretch;
+}
+
+.visual-card {
+  width: 100%;
+  background: linear-gradient(180deg, #f5ebe5 0%, #efe0d5 100%);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+.small-label {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+.visual-card strong {
+  color: var(--title);
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.visual-card p {
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* ========================================
+   GRID DE ESTATÍSTICAS
+======================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f6ede8 0%, #efe2d8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--title);
+  flex-shrink: 0;
+}
+
+.stat-label {
+  display: block;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  margin-bottom: 6px;
+}
+
+.stat-card strong {
+  color: var(--title);
+  font-size: 1.45rem;
+}
+
+/* ========================================
+   GRID DE CONTEÚDO INFERIOR
+   Resumo do dia + próximas atividades.
+======================================== */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.panel-header {
+  margin-bottom: 18px;
+}
+
+.panel-header h3 {
+  color: var(--title);
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.panel-header p {
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* ========================================
+   LISTAS DE RESUMO E TAREFAS
+======================================== */
+.summary-list,
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summary-item,
+.task-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffaf7 0%, #fbf5f1 100%);
+  border: 1px solid #eedfd4;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.summary-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.summary-item strong,
+.task-main strong {
+  color: var(--title);
+  font-size: 1.02rem;
+}
+
+.summary-item p,
+.task-main span {
+  color: var(--text-soft);
+  margin-top: 5px;
+  display: block;
+  line-height: 1.55;
+}
+
+.task-details {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.task-detail-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f3e9e3;
+  color: var(--title);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   ITEM DE TAREFA
+   Estrutura e alinhamento das ações.
+======================================== */
+.task-item {
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.task-main {
+  min-width: 0;
+}
+
+.task-item-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.task-status {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f3e9e3;
+  color: var(--title);
+  font-size: 0.84rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.task-action-btn {
+  border: none;
+  background: #efe3db;
+  color: var(--title);
+  padding: 8px 13px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.task-action-btn:hover {
+  background: #e8d8cc;
+}
+
+/* ========================================
+   PAINEL DE NOTIFICAÇÕES
+======================================== */
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 370px;
+  background: rgba(255, 250, 247, 0.98);
+  border: 1px solid rgba(230, 216, 206, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 24px 50px rgba(110, 86, 74, 0.14);
+  padding: 18px;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.22s ease;
+}
+
+.notification-panel.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.notification-panel-header {
+  margin-bottom: 14px;
+}
+
+.notification-badge {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #f5ece7;
+  color: var(--title);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.notification-panel-header h3 {
+  color: var(--title);
+  font-size: 1.25rem;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-empty {
+  text-align: center;
+  padding: 24px 12px 10px;
+}
+
+.notification-empty-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: #f5ece7;
+  color: var(--title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 1.2rem;
+}
+
+.notification-empty strong {
+  display: block;
+  color: var(--title);
+  margin-bottom: 8px;
+}
+
+.notification-empty p {
+  color: var(--text-soft);
+  line-height: 1.6;
+  font-size: 0.94rem;
+}
+
+.notification-item {
+  padding: 14px;
+  border-radius: 16px;
+  background: #fcf8f5;
+  border: 1px solid #efe1d7;
+}
+
+.notification-item strong {
+  display: block;
+  color: var(--title);
+  margin-bottom: 4px;
+}
+
+.notification-item p {
+  color: var(--text-soft);
+  line-height: 1.5;
+  font-size: 0.93rem;
+}
+
+.notification-item span {
+  display: inline-block;
+  margin-top: 8px;
+  color: #a38472;
+  font-size: 0.82rem;
+}
+
+/* ========================================
+   MODAL DE NOVA TAREFA
+======================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(86, 64, 51, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.task-modal {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255, 250, 247, 0.96);
+  border: 1px solid rgba(230, 216, 206, 0.95);
+  border-radius: 28px;
+  box-shadow: 0 26px 60px rgba(110, 86, 74, 0.16);
+  padding: 24px;
+  transform: translateY(12px) scale(0.98);
+  transition: 0.25s ease;
+}
+
+.modal-overlay.active .task-modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-badge {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f5ece7;
+  color: var(--title);
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal-header h3 {
+  color: var(--title);
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.modal-header p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.modal-close-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-close-btn:hover {
+  background: #f5ece7;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-field label {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.modal-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.modal-input-wrap i {
+  position: absolute;
+  left: 16px;
+  color: #a58471;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.modal-input-wrap input,
+.modal-input-wrap select {
+  width: 100%;
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0 16px 0 46px;
+  outline: none;
+  color: var(--title);
+  transition: 0.22s ease;
+  appearance: none;
+}
+
+.modal-input-wrap input::placeholder {
+  color: #ac9486;
+}
+
+.modal-input-wrap input:focus,
+.modal-input-wrap select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(199, 155, 124, 0.14);
+}
+
+.modal-message {
+  min-height: 22px;
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: none;
+  font-size: 0.94rem;
+}
+
+.modal-message.show {
+  display: block;
+}
+
+.modal-message.error {
+  background: rgba(227, 182, 182, 0.18);
+  border: 1px solid rgba(204, 143, 143, 0.24);
+  color: #8e5d5d;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.secondary-btn {
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: #f5ece7;
+  color: var(--title);
+  font-weight: 700;
+}
+
+.secondary-btn:hover {
+  background: #ead9cd;
+}
+
+.modal-save-btn {
+  height: 48px;
+  padding: 0 20px;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   Ajustes para telas menores.
+======================================== */
+@media (max-width: 1100px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .hero-panel,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 18px;
+  }
+
+  .topbar h2 {
+    font-size: 2.6rem;
+  }
+
+  .hero-copy h3 {
+    font-size: 2rem;
+  }
+
+  .panel-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .task-modal {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .secondary-btn,
+  .modal-save-btn {
+    width: 100%;
+  }
+
+  .notification-panel {
+    width: min(360px, calc(100vw - 40px));
+    right: -10px;
+  }
+}
+
+/* ========================================
+   AÇÕES DE CONTEXTO NA HERO
+======================================== */
+.hero-context-actions {
+  margin-top: 16px;
+}
+
+.context-btn {
+  height: 44px;
+  padding: 0 16px;
+}
+
+.meta-action-btn {
+  margin-top: 12px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #efe3db;
+  color: var(--title);
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.meta-action-btn:hover {
+  background: #e7d5c8;
+}
+
+/* ========================================
+   BADGES EXTRAS DAS TAREFAS
+======================================== */
+.task-details {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.task-detail-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f3e9e3;
+  color: var(--title);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   TOAST DE FEEDBACK AO CONCLUIR TAREFA
+======================================== */
+.toast-feedback {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1200;
+
+  width: 360px;
+  max-width: calc(100vw - 32px);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 16px;
+  border-radius: 20px;
+
+  background: rgba(255, 250, 247, 0.96);
+  border: 1px solid rgba(232, 218, 208, 0.95);
+  box-shadow: 0 20px 45px rgba(110, 86, 74, 0.16);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition: 0.25s ease;
+}
+
+.toast-feedback.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f2e8e1 0%, #ead8cb 100%);
+  color: var(--title);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.toast-content strong {
+  display: block;
+  color: var(--title);
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.toast-content p {
+  color: var(--text-soft);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  .toast-feedback {
+    right: 16px;
+    left: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+}
+.task-status.overdue {
+  background: #f6dfdb;
+  color: #9a4f4f;
+}
+
+.task-status.today {
+  background: #f5e7d7;
+  color: #8a6348;
+}
+
+.task-status.upcoming {
+  background: #e7efe8;
+  color: #55745c;
+}
+
+.task-status.no-date {
+  background: #ece7e2;
+  color: #7b6a5e;
+}

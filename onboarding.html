@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ========================================
+       CONFIGURAÇÕES BÁSICAS
+  ========================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Personalizar conta</title>
+
+  <!-- ========================================
+       FONTES
+  ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ========================================
+       ÍCONES
+  ========================================= -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- ========================================
+       CSS DO ONBOARDING
+  ========================================= -->
+  <link rel="stylesheet" href="css/onboarding.css" />
+</head>
+<body>
+  <main class="onboarding-page">
+    <!-- Fundo decorativo -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <section class="onboarding-shell">
+      <!-- ========================================
+           CABEÇALHO
+      ========================================= -->
+      <header class="onboarding-header">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <span class="brand-sun"></span>
+            <span class="brand-wave brand-wave-1"></span>
+            <span class="brand-wave brand-wave-2"></span>
+          </div>
+          <h1>Fluir</h1>
+        </div>
+
+        <div class="header-text">
+          <h2>Vamos personalizar sua experiência</h2>
+          <p>
+            Antes de começar, queremos entender um pouco sobre você e como deseja organizar sua rotina.
+          </p>
+        </div>
+      </header>
+
+      <!-- ========================================
+           CARD PRINCIPAL
+      ========================================= -->
+      <section class="onboarding-card">
+        <div class="step-badge">Primeiro acesso</div>
+
+        <!-- Formulário do primeiro acesso -->
+        <form id="onboardingForm" class="onboarding-form" novalidate>
+          <div class="grid">
+            <!-- ========================================
+                 COLUNA ESQUERDA - FOTO
+            ========================================= -->
+            <div class="left-column">
+              <div class="photo-card">
+                <label class="photo-upload" for="profilePhoto">
+                  <!-- Input escondido de foto -->
+                  <input type="file" id="profilePhoto" accept="image/*" hidden />
+
+                  <!-- Preview da foto -->
+                  <div class="photo-preview" id="photoPreview">
+                    <i class="bi bi-person-circle"></i>
+                  </div>
+
+                  <span class="photo-text">Adicionar foto</span>
+                </label>
+
+                <p class="photo-helper">Opcional. Você pode mudar isso depois.</p>
+              </div>
+            </div>
+
+            <!-- ========================================
+                 COLUNA DIREITA - DADOS DO USUÁRIO
+            ========================================= -->
+            <div class="right-column">
+              <div class="field">
+                <label for="userName">Como você quer ser chamado?</label>
+                <div class="input-wrap">
+                  <i class="bi bi-person"></i>
+                  <input
+                    type="text"
+                    id="userName"
+                    placeholder="Digite seu nome"
+                    autocomplete="name"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="userPronoun">Pronome</label>
+                <div class="input-wrap">
+                  <i class="bi bi-chat-left-text"></i>
+                  <select id="userPronoun">
+                    <option value="">Selecione</option>
+                    <option value="ele/dele">Ele/Dele</option>
+                    <option value="ela/dela">Ela/Dela</option>
+                    <option value="elu/delu">Elu/Delu</option>
+                    <option value="prefiro nao informar">Prefiro não informar</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="mainFocus">Qual será seu foco principal no Fluir?</label>
+                <div class="input-wrap">
+                  <i class="bi bi-stars"></i>
+                  <select id="mainFocus">
+                    <option value="">Selecione</option>
+                    <option value="estudos">Estudos</option>
+                    <option value="trabalho">Trabalho</option>
+                    <option value="rotina pessoal">Rotina pessoal</option>
+                    <option value="saude e bem-estar">Saúde e bem-estar</option>
+                    <option value="organizacao geral">Organização geral</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="energyLevel">Como sua energia costuma ficar ao longo do dia?</label>
+                <div class="input-wrap">
+                  <i class="bi bi-lightning-charge"></i>
+                  <select id="energyLevel">
+                    <option value="">Selecione</option>
+                    <option value="baixa">Mais baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                    <option value="varia bastante">Varia bastante</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="firstTask">Qual é a primeira atividade que você quer adicionar?</label>
+                <div class="input-wrap">
+                  <i class="bi bi-check2-square"></i>
+                  <input
+                    type="text"
+                    id="firstTask"
+                    placeholder="Ex: estudar matemática, organizar o quarto..."
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="taskPeriod">Em qual período essa atividade costuma acontecer?</label>
+                <div class="input-wrap">
+                  <i class="bi bi-clock"></i>
+                  <select id="taskPeriod">
+                    <option value="">Selecione</option>
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                    <option value="sem horario fixo">Sem horário fixo</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========================================
+               BOTÃO FINAL + MENSAGEM
+          ========================================= -->
+          <div class="actions">
+            <div id="onboardingMessage" class="form-message" aria-live="polite"></div>
+            <button type="submit" class="primary-btn">Salvar e começar</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <!-- ========================================
+       JS DO ONBOARDING
+  ========================================= -->
+  <script src="js/onboarding.js"></script>
+</body>
+</html>

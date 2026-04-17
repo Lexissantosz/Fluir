@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ========================================
+       CONFIGURAÇÕES BÁSICAS
+  ========================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Início</title>
+
+  <!-- ========================================
+       FONTES
+  ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ========================================
+       ÍCONES
+  ========================================= -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- ========================================
+       CSS DA HOME
+  ========================================= -->
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- ========================================
+         SIDEBAR
+    ========================================= -->
+    <aside class="sidebar">
+      <!-- Marca -->
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="brand-sun"></span>
+          <span class="brand-wave brand-wave-1"></span>
+          <span class="brand-wave brand-wave-2"></span>
+        </div>
+        <h1>Fluir</h1>
+      </div>
+
+      <!-- Navegação lateral -->
+      <nav class="sidebar-nav">
+        <a href="home.html" class="nav-item active">
+          <i class="bi bi-grid-1x2"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="meu-dia.html" class="nav-item">
+          <i class="bi bi-sun"></i>
+          <span>Meu dia</span>
+        </a>
+
+        <a href="tarefas.html" class="nav-item">
+          <i class="bi bi-check2-square"></i>
+          <span>Tarefas</span>
+        </a>
+
+        <a href="planejamento.html" class="nav-item">
+          <i class="bi bi-calendar3"></i>
+          <span>Planejamento</span>
+        </a>
+
+        <a href="historico.html" class="nav-item">
+          <i class="bi bi-clock-history"></i>
+          <span>Histórico</span>
+        </a>
+
+        <a href="configuracoes.html" class="nav-item">
+          <i class="bi bi-gear"></i>
+          <span>Configurações</span>
+        </a>
+      </nav>
+
+      <!-- Perfil lateral -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar" id="sidebarAvatar">
+          <i class="bi bi-person"></i>
+        </div>
+
+        <div class="profile-info">
+          <strong id="sidebarName">Usuário</strong>
+          <span id="sidebarPronoun">Pronome</span>
+
+          <div class="profile-mini-details">
+            <span id="sidebarFocus">Foco: não definido</span>
+            <span id="sidebarEnergy">Energia: não definida</span>
+          </div>
+
+          <p class="profile-soft-text" id="sidebarSoftText">
+            Seu ritmo também é cuidado.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+    <main class="main-content">
+      <!-- ========================================
+           TOPBAR
+      ========================================= -->
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Sua rotina em movimento</p>
+          <h2 id="welcomeTitle">Olá, seja bem-vindo.</h2>
+        </div>
+
+        <div class="topbar-actions">
+          <!-- ========================================
+               NOTIFICAÇÕES
+          ========================================= -->
+          <div class="notification-wrapper">
+            <button class="ghost-btn" id="notificationBtn" type="button">
+              <i class="bi bi-bell"></i>
+            </button>
+
+            <div class="notification-panel" id="notificationPanel">
+              <div class="notification-panel-header">
+                <div>
+                  <span class="notification-badge">Notificações</span>
+                  <h3>Central de avisos</h3>
+                </div>
+              </div>
+
+              <div class="notification-list" id="notificationList">
+                <div class="notification-empty">
+                  <div class="notification-empty-icon">
+                    <i class="bi bi-bell"></i>
+                  </div>
+                  <strong>Nenhuma notificação por enquanto</strong>
+                  <p>Quando houver lembretes, avisos ou atualizações, eles aparecerão aqui.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão de nova tarefa -->
+          <button class="primary-btn" id="newTaskBtn" type="button">
+            <i class="bi bi-plus-lg"></i>
+            Nova tarefa
+          </button>
+        </div>
+      </header>
+
+      <!-- ========================================
+           HERO / DESTAQUE DO DIA
+      ========================================= -->
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <span class="badge">Hoje</span>
+
+          <h3 id="focusTitle">Seu foco principal é seguir com leveza.</h3>
+
+          <p id="focusText">
+            Organize o que importa agora e avance com clareza, respeitando sua energia.
+          </p>
+
+          <p id="calmPhrase" class="calm-phrase">
+            Respire. Um passo de cada vez já é progresso.
+          </p>
+
+          <!-- Cards rápidos -->
+          <div class="hero-meta">
+            <div class="meta-card">
+              <span class="meta-label">Energia atual</span>
+              <strong id="energyValue">Média</strong>
+              <button type="button" class="meta-action-btn" id="changeEnergyBtn">
+                Alterar
+              </button>
+            </div>
+
+            <div class="meta-card">
+              <span class="meta-label">Foco atual</span>
+              <strong id="mainFocusValue">Organização geral</strong>
+              <button type="button" class="meta-action-btn" id="changeFocusBtn">
+                Alterar
+              </button>
+            </div>
+
+            <div class="meta-card">
+              <span class="meta-label">Tempo disponível</span>
+              <strong id="availableTimeValue">Não definido</strong>
+              <button type="button" class="meta-action-btn" id="changeTimeBtn">
+                Alterar
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-context-actions">
+            <button type="button" class="primary-btn context-btn" id="openContextModalBtn">
+              Atualizar contexto
+            </button>
+          </div>
+        </div>
+
+        <!-- Próxima atividade -->
+        <div class="hero-visual">
+          <div class="visual-card">
+            <span class="small-label">Próxima atividade</span>
+            <strong id="nextTaskTitle">Nenhuma tarefa definida</strong>
+            <p id="nextTaskPeriod">Adicione sua primeira atividade para começar.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           ESTATÍSTICAS
+      ========================================= -->
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-list-check"></i>
+          </div>
+          <div>
+            <span class="stat-label">Tarefas do dia</span>
+            <strong id="tasksToday">1</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-check-circle"></i>
+          </div>
+          <div>
+            <span class="stat-label">Concluídas</span>
+            <strong id="tasksDone">0</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
+          <div>
+            <span class="stat-label">Estado mental</span>
+            <strong id="mentalState">Estável</strong>
+          </div>
+        </article>
+      </section>
+
+      <!-- ========================================
+           CONTEÚDO ABAIXO DA HERO
+      ========================================= -->
+      <section class="content-grid">
+        <!-- Resumo do dia -->
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Resumo do dia</h3>
+              <p>Uma leitura rápida do que merece sua atenção agora.</p>
+            </div>
+          </div>
+
+          <div class="summary-list">
+            <div class="summary-item">
+              <span class="summary-dot"></span>
+              <div>
+                <strong>Prioridade principal</strong>
+                <p id="summaryPriority">Começar sua primeira atividade.</p>
+              </div>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-dot"></span>
+              <div>
+                <strong>Melhor período</strong>
+                <p id="summaryPeriod">Ainda não definido.</p>
+              </div>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-dot"></span>
+              <div>
+                <strong>Ritmo sugerido</strong>
+                <p id="summaryRhythm">Avance em pequenos passos com constância.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Próximas atividades -->
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Próximas atividades</h3>
+              <p>O que já está definido para o seu fluxo de hoje.</p>
+            </div>
+          </div>
+
+          <div class="task-list" id="taskList">
+            <div class="task-item">
+              <div class="task-main">
+                <strong>Nenhuma atividade cadastrada</strong>
+                <span>Comece pelo onboarding</span>
+              </div>
+              <div class="task-status">Pendente</div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ========================================
+           MODAL DE CONTEXTO
+      ========================================= -->
+      <div class="modal-overlay" id="contextModal">
+        <div class="task-modal">
+          <div class="modal-header">
+            <div>
+              <span class="modal-badge">Contexto do momento</span>
+              <h3>Atualizar contexto</h3>
+              <p>Informe como você está agora para o Fluir sugerir melhor suas atividades.</p>
+            </div>
+
+            <button class="modal-close-btn" id="closeContextModal" type="button" aria-label="Fechar">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+
+          <form id="contextForm" class="modal-form" novalidate>
+            <div class="modal-field">
+              <label for="contextEnergy">Energia atual</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-lightning-charge"></i>
+                <select id="contextEnergy">
+                  <option value="">Selecione</option>
+                  <option value="baixa">Baixa</option>
+                  <option value="media">Média</option>
+                  <option value="alta">Alta</option>
+                  <option value="varia bastante">Varia bastante</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="contextFocus">Foco atual</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-stars"></i>
+                <input
+                  type="text"
+                  id="contextFocus"
+                  placeholder="Ex: estudos, trabalho, organização da casa"
+                />
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="contextAvailableTime">Tempo disponível</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-hourglass-split"></i>
+                <select id="contextAvailableTime">
+                  <option value="">Selecione</option>
+                  <option value="15 min">15 min</option>
+                  <option value="30 min">30 min</option>
+                  <option value="45 min">45 min</option>
+                  <option value="1 hora">1 hora</option>
+                  <option value="1h30">1h30</option>
+                  <option value="2 horas">2 horas</option>
+                  <option value="3 horas">3 horas</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="contextModalMessage" class="modal-message" aria-live="polite"></div>
+
+            <div class="modal-actions">
+              <button type="button" class="secondary-btn" id="cancelContextModal">
+                Cancelar
+              </button>
+
+              <button type="submit" class="primary-btn modal-save-btn">
+                Salvar contexto
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ========================================
+           MODAL DE NOVA TAREFA
+      ========================================= -->
+      <div class="modal-overlay" id="taskModal">
+        <div class="task-modal">
+          <div class="modal-header">
+            <div>
+              <span class="modal-badge">Nova tarefa</span>
+              <h3>Adicionar atividade</h3>
+              <p>Crie uma nova tarefa de forma rápida e organizada.</p>
+            </div>
+
+            <button class="modal-close-btn" id="closeTaskModal" type="button" aria-label="Fechar">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+
+          <form id="taskForm" class="modal-form" novalidate>
+            <div class="modal-field">
+              <label for="modalTaskTitle">Nome da tarefa</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-check2-square"></i>
+                <input
+                  type="text"
+                  id="modalTaskTitle"
+                  placeholder="Ex: estudar matemática"
+                />
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="modalTaskPeriod">Período</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-clock"></i>
+                <select id="modalTaskPeriod">
+                  <option value="">Selecione</option>
+                  <option value="manha">Manhã</option>
+                  <option value="tarde">Tarde</option>
+                  <option value="noite">Noite</option>
+                  <option value="sem horario fixo">Sem horário fixo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="modalTaskTag">Tag / foco relacionado</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-bookmark"></i>
+                <select id="modalTaskTag">
+                  <option value="">Selecione</option>
+                  <option value="estudos">Estudos</option>
+                  <option value="casa">Casa</option>
+                  <option value="trabalho">Trabalho</option>
+                  <option value="saude">Saúde</option>
+                  <option value="autocuidado">Autocuidado</option>
+                  <option value="leitura">Leitura</option>
+                  <option value="organizacao">Organização</option>
+                  <option value="lazer">Lazer</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="modalTaskDuration">Tempo estimado</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-hourglass-split"></i>
+                <select id="modalTaskDuration">
+                  <option value="">Selecione</option>
+                  <option value="15">15 min</option>
+                  <option value="30">30 min</option>
+                  <option value="45">45 min</option>
+                  <option value="60">1 hora</option>
+                  <option value="90">1h30</option>
+                  <option value="120">2 horas</option>
+                  <option value="180">3 horas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="modalTaskPriority">Prioridade</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-flag"></i>
+                <select id="modalTaskPriority">
+                  <option value="">Selecione</option>
+                  <option value="alta">Alta</option>
+                  <option value="media">Média</option>
+                  <option value="baixa">Baixa</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-field">
+              <label for="modalTaskDeadline">Data limite</label>
+              <div class="modal-input-wrap">
+                <i class="bi bi-calendar-event"></i>
+                <input type="date" id="modalTaskDeadline" />
+              </div>
+            </div>
+
+            <div id="taskModalMessage" class="modal-message" aria-live="polite"></div>
+
+            <div class="modal-actions">
+              <button type="button" class="secondary-btn" id="cancelTaskModal">
+                Cancelar
+              </button>
+
+              <button type="submit" class="primary-btn modal-save-btn">
+                Salvar tarefa
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================
+       TOAST DE FEEDBACK
+  ========================================= -->
+  <div class="toast-feedback" id="taskToast">
+    <div class="toast-icon">
+      <i class="bi bi-check2-circle"></i>
+    </div>
+
+    <div class="toast-content">
+      <strong id="toastTitle">Parabéns!</strong>
+      <p id="toastText">Você concluiu uma atividade com calma e constância.</p>
+    </div>
+  </div>
+
+  <!-- ========================================
+       JS DA HOME
+  ========================================= -->
+  <script src="js/home.js"></script>
+</body>
+</html>

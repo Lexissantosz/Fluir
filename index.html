@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ========================================
+       CONFIGURAÇÕES BÁSICAS
+  ========================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Acesso</title>
+
+  <!-- ========================================
+       FONTES
+  ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ========================================
+       ÍCONES
+  ========================================= -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- ========================================
+       CSS DA TELA DE LOGIN/CADASTRO
+  ========================================= -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="auth-page">
+    <!-- ========================================
+         ELEMENTOS DECORATIVOS DE FUNDO
+    ========================================= -->
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <section class="auth-shell">
+      <!-- ========================================
+           TOPO / MARCA / TEXTO PRINCIPAL
+      ========================================= -->
+      <header class="brand-header">
+        <div class="brand">
+          <!-- Logo visual do Fluir -->
+          <div class="brand-mark" aria-hidden="true">
+            <span class="brand-sun"></span>
+            <span class="brand-wave brand-wave-1"></span>
+            <span class="brand-wave brand-wave-2"></span>
+          </div>
+
+          <!-- Nome da marca -->
+          <div class="brand-text">
+            <h1>Fluir</h1>
+          </div>
+        </div>
+
+        <!-- Título e subtítulo dinâmicos -->
+        <div class="hero-copy">
+          <h2 id="heroTitle">Bem-vindo ao Fluir</h2>
+          <p id="heroSubtitle">Organize seu dia com leveza, clareza e constância.</p>
+        </div>
+      </header>
+
+      <!-- ========================================
+           ÁREA PRINCIPAL DA AUTENTICAÇÃO
+      ========================================= -->
+      <section class="auth-stage">
+        <!-- ========================================
+             ILUSTRAÇÃO DECORATIVA ESQUERDA
+        ========================================= -->
+        <aside class="auth-visual" aria-hidden="true">
+          <div class="visual-leaf visual-leaf-1"></div>
+          <div class="visual-leaf visual-leaf-2"></div>
+
+          <div class="desk-scene">
+            <div class="plant">
+              <span class="plant-leaf leaf-a"></span>
+              <span class="plant-leaf leaf-b"></span>
+              <span class="plant-leaf leaf-c"></span>
+              <span class="plant-pot"></span>
+            </div>
+
+            <div class="calendar-card">
+              <div class="calendar-rings">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+
+              <div class="calendar-top-line"></div>
+
+              <div class="calendar-grid">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span class="active"></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="clock">
+              <div class="clock-face">
+                <span class="clock-dot"></span>
+                <span class="clock-hand hour"></span>
+                <span class="clock-hand minute"></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- ========================================
+             CARD CENTRAL DE LOGIN/CADASTRO
+        ========================================= -->
+        <section class="auth-card">
+          <!-- Botões para alternar entre Entrar e Criar conta -->
+          <div class="card-top">
+            <div class="segment-control" role="tablist" aria-label="Alternar formulários">
+              <button
+                class="segment-btn active"
+                id="showLoginBtn"
+                type="button"
+                role="tab"
+                aria-selected="true"
+              >
+                Entrar
+              </button>
+
+              <button
+                class="segment-btn"
+                id="showRegisterBtn"
+                type="button"
+                role="tab"
+                aria-selected="false"
+              >
+                Criar conta
+              </button>
+            </div>
+          </div>
+
+          <div class="form-area">
+            <!-- ========================================
+                 FORMULÁRIO DE LOGIN
+            ========================================= -->
+            <form id="loginForm" class="auth-form active" novalidate>
+              <div class="form-header">
+                <h3>Entrar</h3>
+                <p>Acesse sua rotina e continue de onde parou.</p>
+              </div>
+
+              <div class="field">
+                <label for="loginEmail">E-mail</label>
+                <div class="input-wrap">
+                  <i class="bi bi-envelope"></i>
+                  <input
+                    id="loginEmail"
+                    name="loginEmail"
+                    type="email"
+                    placeholder="Seu e-mail"
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="loginPassword">Senha</label>
+                <div class="input-wrap password-wrap">
+                  <i class="bi bi-lock"></i>
+                  <input
+                    id="loginPassword"
+                    name="loginPassword"
+                    type="password"
+                    placeholder="Sua senha"
+                    autocomplete="current-password"
+                  />
+                  <!-- Botão de mostrar/ocultar senha -->
+                  <button
+                    class="password-toggle"
+                    type="button"
+                    data-toggle-password="loginPassword"
+                    aria-label="Mostrar ou ocultar senha"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Opções extras do login -->
+              <div class="form-row">
+                <label class="check-control">
+                  <input type="checkbox" id="rememberMe" />
+                  <span>Lembrar de mim</span>
+                </label>
+
+                <a href="#" class="inline-link">Esqueceu sua senha?</a>
+              </div>
+
+              <!-- Botão principal -->
+              <button type="submit" class="primary-btn">
+                Entrar
+              </button>
+
+              <!-- Troca para cadastro -->
+              <p class="switch-text">
+                Ainda não tem conta?
+                <button type="button" class="text-btn" id="switchToRegister">
+                  Criar conta
+                </button>
+              </p>
+            </form>
+
+            <!-- ========================================
+                 FORMULÁRIO DE CADASTRO
+            ========================================= -->
+            <form id="registerForm" class="auth-form" novalidate>
+              <div class="form-header">
+                <h3>Criar conta</h3>
+                <p>Comece a organizar sua rotina com mais clareza.</p>
+              </div>
+
+              <div class="field">
+                <label for="registerName">Nome completo</label>
+                <div class="input-wrap">
+                  <i class="bi bi-person"></i>
+                  <input
+                    id="registerName"
+                    name="registerName"
+                    type="text"
+                    placeholder="Seu nome completo"
+                    autocomplete="name"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="registerEmail">E-mail</label>
+                <div class="input-wrap">
+                  <i class="bi bi-envelope"></i>
+                  <input
+                    id="registerEmail"
+                    name="registerEmail"
+                    type="email"
+                    placeholder="Seu melhor e-mail"
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="registerPassword">Senha</label>
+                <div class="input-wrap password-wrap">
+                  <i class="bi bi-lock"></i>
+                  <input
+                    id="registerPassword"
+                    name="registerPassword"
+                    type="password"
+                    placeholder="Crie uma senha segura"
+                    autocomplete="new-password"
+                  />
+                  <button
+                    class="password-toggle"
+                    type="button"
+                    data-toggle-password="registerPassword"
+                    aria-label="Mostrar ou ocultar senha"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="registerConfirmPassword">Confirmar senha</label>
+                <div class="input-wrap password-wrap">
+                  <i class="bi bi-shield-lock"></i>
+                  <input
+                    id="registerConfirmPassword"
+                    name="registerConfirmPassword"
+                    type="password"
+                    placeholder="Repita sua senha"
+                    autocomplete="new-password"
+                  />
+                  <button
+                    class="password-toggle"
+                    type="button"
+                    data-toggle-password="registerConfirmPassword"
+                    aria-label="Mostrar ou ocultar senha"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Aceite dos termos -->
+              <label class="check-control terms-control">
+                <input type="checkbox" id="terms" />
+                <span>Concordo com os Termos de Uso e a Política de Privacidade</span>
+              </label>
+
+              <button type="submit" class="primary-btn">
+                Criar conta
+              </button>
+
+              <!-- Troca para login -->
+              <p class="switch-text">
+                Já tem uma conta?
+                <button type="button" class="text-btn" id="switchToLogin">
+                  Entrar
+                </button>
+              </p>
+            </form>
+
+            <!-- Área de mensagem dinâmica -->
+            <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- ========================================
+             ILUSTRAÇÃO DECORATIVA DIREITA
+        ========================================= -->
+        <aside class="auth-visual auth-visual-right" aria-hidden="true">
+          <div class="steam steam-1"></div>
+          <div class="steam steam-2"></div>
+          <div class="steam steam-3"></div>
+
+          <div class="cup-area">
+            <div class="cup"></div>
+            <div class="cup-shadow"></div>
+          </div>
+
+          <div class="notepad">
+            <div class="notepad-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ========================================
+           RODAPÉ
+      ========================================= -->
+      <footer class="auth-footer">
+        <a href="#">Política de Privacidade</a>
+        <span class="divider"></span>
+        <a href="#">Termos de Uso</a>
+      </footer>
+    </section>
+  </main>
+
+  <!-- ========================================
+       JS DA AUTENTICAÇÃO
+  ========================================= -->
+  <script src="js/script.js"></script>
+</body>
+</html>
