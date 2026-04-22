@@ -54,7 +54,7 @@
         <div class="header-text">
           <h2>Vamos personalizar sua experiência</h2>
           <p>
-            Antes de começar, queremos entender um pouco sobre você e como deseja organizar sua rotina.
+            Em poucos passos, vamos entender melhor seu momento e deixar o sistema mais útil para você.
           </p>
         </div>
       </header>
@@ -63,36 +63,42 @@
            CARD PRINCIPAL
       ========================================= -->
       <section class="onboarding-card">
-        <div class="step-badge">Primeiro acesso</div>
+        <!-- Indicador superior -->
+        <div class="step-topbar">
+          <span class="step-badge" id="stepBadge">Etapa 1 de 5</span>
 
-        <!-- Formulário do primeiro acesso -->
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- ========================================
+             FORMULÁRIO EM ETAPAS
+        ========================================= -->
         <form id="onboardingForm" class="onboarding-form" novalidate>
-          <div class="grid">
-            <!-- ========================================
-                 COLUNA ESQUERDA - FOTO
-            ========================================= -->
-            <div class="left-column">
-              <div class="photo-card">
-                <label class="photo-upload" for="profilePhoto">
-                  <!-- Input escondido de foto -->
-                  <input type="file" id="profilePhoto" accept="image/*" hidden />
-
-                  <!-- Preview da foto -->
-                  <div class="photo-preview" id="photoPreview">
-                    <i class="bi bi-person-circle"></i>
-                  </div>
-
-                  <span class="photo-text">Adicionar foto</span>
-                </label>
-
-                <p class="photo-helper">Opcional. Você pode mudar isso depois.</p>
-              </div>
+          <!-- ========================================
+               ETAPA 1 — IDENTIDADE
+          ========================================= -->
+          <section class="step active" data-step="1">
+            <div class="step-header">
+              <h3>Vamos começar por você</h3>
+              <p>Essas informações ajudam o Fluir a deixar tudo mais pessoal e acolhedor.</p>
             </div>
 
-            <!-- ========================================
-                 COLUNA DIREITA - DADOS DO USUÁRIO
-            ========================================= -->
-            <div class="right-column">
+            <div class="step-grid">
+              <div class="field full-width">
+                <label for="fullName">Seu nome completo</label>
+                <div class="input-wrap">
+                  <i class="bi bi-person-vcard"></i>
+                  <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Digite seu nome completo"
+                    autocomplete="name"
+                  />
+                </div>
+              </div>
+
               <div class="field">
                 <label for="userName">Como você quer ser chamado?</label>
                 <div class="input-wrap">
@@ -100,8 +106,7 @@
                   <input
                     type="text"
                     id="userName"
-                    placeholder="Digite seu nome"
-                    autocomplete="name"
+                    placeholder="Ex: Alex"
                   />
                 </div>
               </div>
@@ -119,9 +124,25 @@
                   </select>
                 </div>
               </div>
+            </div>
 
+            <div class="step-actions">
+              <button type="button" class="primary-btn next-step">Continuar</button>
+            </div>
+          </section>
+
+          <!-- ========================================
+               ETAPA 2 — CONTEXTO INICIAL
+          ========================================= -->
+          <section class="step" data-step="2">
+            <div class="step-header">
+              <h3>Como está seu momento?</h3>
+              <p>Essas escolhas ajudam o Fluir a organizar melhor suas sugestões.</p>
+            </div>
+
+            <div class="step-grid">
               <div class="field">
-                <label for="mainFocus">Qual será seu foco principal no Fluir?</label>
+                <label for="mainFocus">Qual será seu foco principal?</label>
                 <div class="input-wrap">
                   <i class="bi bi-stars"></i>
                   <select id="mainFocus">
@@ -136,33 +157,84 @@
               </div>
 
               <div class="field">
-                <label for="energyLevel">Como sua energia costuma ficar ao longo do dia?</label>
+                <label for="energyLevel">Como sua energia costuma ficar?</label>
                 <div class="input-wrap">
                   <i class="bi bi-lightning-charge"></i>
                   <select id="energyLevel">
                     <option value="">Selecione</option>
-                    <option value="baixa">Mais baixa</option>
+                    <option value="baixa">Baixa</option>
                     <option value="media">Média</option>
                     <option value="alta">Alta</option>
                     <option value="varia bastante">Varia bastante</option>
                   </select>
                 </div>
               </div>
+            </div>
 
+            <div class="step-actions">
+              <button type="button" class="secondary-btn prev-step">Voltar</button>
+              <button type="button" class="primary-btn next-step">Continuar</button>
+            </div>
+          </section>
+
+          <!-- ========================================
+               ETAPA 3 — TEMPO DISPONÍVEL
+          ========================================= -->
+          <section class="step" data-step="3">
+            <div class="step-header">
+              <h3>Quanto tempo você costuma ter disponível?</h3>
+              <p>Isso ajuda o Fluir a sugerir tarefas mais compatíveis com o seu momento.</p>
+            </div>
+
+            <div class="step-grid single-column">
               <div class="field">
-                <label for="firstTask">Qual é a primeira atividade que você quer adicionar?</label>
+                <label for="availableTime">Tempo disponível</label>
+                <div class="input-wrap">
+                  <i class="bi bi-hourglass-split"></i>
+                  <select id="availableTime">
+                    <option value="">Selecione</option>
+                    <option value="15 min">15 min</option>
+                    <option value="30 min">30 min</option>
+                    <option value="45 min">45 min</option>
+                    <option value="1 hora">1 hora</option>
+                    <option value="1h30">1h30</option>
+                    <option value="2 horas">2 horas</option>
+                    <option value="3 horas">3 horas</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="secondary-btn prev-step">Voltar</button>
+              <button type="button" class="primary-btn next-step">Continuar</button>
+            </div>
+          </section>
+
+          <!-- ========================================
+               ETAPA 4 — PRIMEIRA TAREFA
+          ========================================= -->
+          <section class="step" data-step="4">
+            <div class="step-header">
+              <h3>Vamos adicionar sua primeira atividade</h3>
+              <p>Assim o Fluir já começa com algo real para organizar.</p>
+            </div>
+
+            <div class="step-grid">
+              <div class="field full-width">
+                <label for="firstTask">Nome da primeira atividade</label>
                 <div class="input-wrap">
                   <i class="bi bi-check2-square"></i>
                   <input
                     type="text"
                     id="firstTask"
-                    placeholder="Ex: estudar matemática, organizar o quarto..."
+                    placeholder="Ex: estudar matemática"
                   />
                 </div>
               </div>
 
               <div class="field">
-                <label for="taskPeriod">Em qual período essa atividade costuma acontecer?</label>
+                <label for="taskPeriod">Em qual período ela costuma acontecer?</label>
                 <div class="input-wrap">
                   <i class="bi bi-clock"></i>
                   <select id="taskPeriod">
@@ -175,15 +247,185 @@
                 </div>
               </div>
             </div>
-          </div>
+
+            <div class="step-actions">
+              <button type="button" class="secondary-btn prev-step">Voltar</button>
+              <button type="button" class="primary-btn next-step">Continuar</button>
+            </div>
+          </section>
 
           <!-- ========================================
-               BOTÃO FINAL + MENSAGEM
-          ========================================= -->
-          <div class="actions">
-            <div id="onboardingMessage" class="form-message" aria-live="polite"></div>
-            <button type="submit" class="primary-btn">Salvar e começar</button>
+     ETAPA 5 — AVATAR / BONEQUINHO
+======================================== -->
+<section class="step" data-step="5">
+  <div class="step-header">
+    <h3>Monte seu bonequinho</h3>
+    <p>
+      Escolha cada detalhe do avatar do seu jeito. Depois você poderá editar isso nas configurações.
+    </p>
+  </div>
+
+  <div class="avatar-builder-layout">
+    <!-- PREVIEW -->
+    <div class="avatar-preview-card">
+      <div class="avatar-preview" id="avatarPreview"></div>
+
+      <p class="avatar-helper-text">
+        Você poderá atualizar esse bonequinho depois.
+      </p>
+
+      <button type="button" class="secondary-btn random-avatar-btn" id="randomAvatarBtn">
+        Aleatório
+      </button>
+    </div>
+
+    <!-- EDITOR -->
+    <div class="avatar-editor">
+      <!-- Abas -->
+      <div class="avatar-tabs">
+        <button type="button" class="avatar-tab active" data-tab="skin">Pele</button>
+        <button type="button" class="avatar-tab" data-tab="hair">Cabelo</button>
+        <button type="button" class="avatar-tab" data-tab="eyes">Olhos</button>
+        <button type="button" class="avatar-tab" data-tab="nose">Nariz</button>
+        <button type="button" class="avatar-tab" data-tab="mouth">Boca</button>
+        <button type="button" class="avatar-tab" data-tab="shirt">Roupa</button>
+      </div>
+
+      <!-- PAINEL PELE -->
+      <div class="avatar-panel active" data-panel="skin">
+        <div class="avatar-option-group">
+          <h4>Tom de pele</h4>
+          <div class="avatar-choice-row">
+            <button type="button" class="choice-swatch active" data-avatar-field="skin" data-avatar-value="light" style="background:#F7DCC4;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="skin" data-avatar-value="lightMedium" style="background:#E9B88F;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="skin" data-avatar-value="medium" style="background:#D39B6E;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="skin" data-avatar-value="mediumDark" style="background:#A56E4A;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="skin" data-avatar-value="dark" style="background:#7A4E34;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="skin" data-avatar-value="veryDark" style="background:#4E342E;"></button>
           </div>
+        </div>
+      </div>
+
+      <!-- PAINEL CABELO -->
+      <div class="avatar-panel" data-panel="hair">
+        <div class="avatar-option-group">
+          <h4>Cor do cabelo</h4>
+          <div class="avatar-choice-row">
+            <button type="button" class="choice-swatch active" data-avatar-field="hairColor" data-avatar-value="dark" style="background:#2F221D;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="hairColor" data-avatar-value="brown" style="background:#6B4332;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="hairColor" data-avatar-value="lightBrown" style="background:#8A5C42;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="hairColor" data-avatar-value="blonde" style="background:#D4A13D;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="hairColor" data-avatar-value="ginger" style="background:#B9653C;"></button>
+          </div>
+        </div>
+
+        <div class="avatar-option-group">
+          <h4>Tipo de cabelo</h4>
+          <div class="choice-card-grid">
+            <button type="button" class="choice-card active" data-avatar-field="hair" data-avatar-value="short"><span>Curto</span></button>
+            <button type="button" class="choice-card" data-avatar-field="hair" data-avatar-value="medium"><span>Médio</span></button>
+            <button type="button" class="choice-card" data-avatar-field="hair" data-avatar-value="wavy"><span>Ondulado</span></button>
+            <button type="button" class="choice-card" data-avatar-field="hair" data-avatar-value="curly"><span>Cacheado</span></button>
+            <button type="button" class="choice-card" data-avatar-field="hair" data-avatar-value="coily"><span>Crespo</span></button>
+            <button type="button" class="choice-card" data-avatar-field="hair" data-avatar-value="afro"><span>Afro</span></button>
+            <button type="button" class="choice-card" data-avatar-field="hair" data-avatar-value="bun"><span>Coque</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL OLHOS -->
+      <div class="avatar-panel" data-panel="eyes">
+        <div class="avatar-option-group">
+          <h4>Cor dos olhos</h4>
+          <div class="avatar-choice-row">
+            <button type="button" class="choice-swatch active" data-avatar-field="eyeColor" data-avatar-value="darkBrown" style="background:#3A241A;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="eyeColor" data-avatar-value="brown" style="background:#6B4332;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="eyeColor" data-avatar-value="hazel" style="background:#8E6B3E;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="eyeColor" data-avatar-value="green" style="background:#5E7F5E;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="eyeColor" data-avatar-value="blue" style="background:#5D7FA8;"></button>
+          </div>
+        </div>
+
+        <div class="avatar-option-group">
+          <h4>Formato dos olhos</h4>
+          <div class="choice-card-grid">
+            <button type="button" class="choice-card active" data-avatar-field="eyeShape" data-avatar-value="round"><span>Redondo</span></button>
+            <button type="button" class="choice-card" data-avatar-field="eyeShape" data-avatar-value="almond"><span>Amendoado</span></button>
+            <button type="button" class="choice-card" data-avatar-field="eyeShape" data-avatar-value="soft"><span>Suave</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL NARIZ -->
+      <div class="avatar-panel" data-panel="nose">
+        <div class="avatar-option-group">
+          <h4>Cor do nariz</h4>
+          <div class="avatar-choice-row">
+            <button type="button" class="choice-swatch active" data-avatar-field="noseColor" data-avatar-value="soft" style="background:#B57F6B;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="noseColor" data-avatar-value="medium" style="background:#9B654E;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="noseColor" data-avatar-value="deep" style="background:#6F4638;"></button>
+          </div>
+        </div>
+
+        <div class="avatar-option-group">
+          <h4>Formato do nariz</h4>
+          <div class="choice-card-grid">
+            <button type="button" class="choice-card active" data-avatar-field="noseShape" data-avatar-value="short"><span>Curto</span></button>
+            <button type="button" class="choice-card" data-avatar-field="noseShape" data-avatar-value="soft"><span>Suave</span></button>
+            <button type="button" class="choice-card" data-avatar-field="noseShape" data-avatar-value="defined"><span>Marcado</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL BOCA -->
+      <div class="avatar-panel" data-panel="mouth">
+        <div class="avatar-option-group">
+          <h4>Cor da boca</h4>
+          <div class="avatar-choice-row">
+            <button type="button" class="choice-swatch active" data-avatar-field="mouthColor" data-avatar-value="softRose" style="background:#A56A63;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="mouthColor" data-avatar-value="rose" style="background:#C07B73;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="mouthColor" data-avatar-value="brownRose" style="background:#8E5D52;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="mouthColor" data-avatar-value="deep" style="background:#6A4037;"></button>
+          </div>
+        </div>
+
+        <div class="avatar-option-group">
+          <h4>Formato da boca</h4>
+          <div class="choice-card-grid">
+            <button type="button" class="choice-card active" data-avatar-field="mouthShape" data-avatar-value="smile"><span>Sorriso</span></button>
+            <button type="button" class="choice-card" data-avatar-field="mouthShape" data-avatar-value="soft"><span>Leve</span></button>
+            <button type="button" class="choice-card" data-avatar-field="mouthShape" data-avatar-value="neutral"><span>Neutra</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL ROUPA -->
+      <div class="avatar-panel" data-panel="shirt">
+        <div class="avatar-option-group">
+          <h4>Cor da roupa</h4>
+          <div class="avatar-choice-row">
+            <button type="button" class="choice-swatch active" data-avatar-field="shirt" data-avatar-value="beige" style="background:#CDB09A;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="shirt" data-avatar-value="rose" style="background:#D8A7A7;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="shirt" data-avatar-value="green" style="background:#9FB59F;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="shirt" data-avatar-value="brown" style="background:#A78674;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="shirt" data-avatar-value="blue" style="background:#8FA8B7;"></button>
+            <button type="button" class="choice-swatch" data-avatar-field="shirt" data-avatar-value="lavender" style="background:#B7A8C9;"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-actions">
+    <button type="button" class="secondary-btn prev-step">Voltar</button>
+    <button type="submit" class="primary-btn">Finalizar onboarding</button>
+  </div>
+</section>
+
+          <!-- ========================================
+               MENSAGEM GERAL
+          ========================================= -->
+          <div id="onboardingMessage" class="form-message" aria-live="polite"></div>
         </form>
       </section>
     </section>

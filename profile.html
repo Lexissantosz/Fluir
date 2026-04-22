@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ========================================
+       CONFIGURAÇÕES BÁSICAS
+  ========================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluir | Perfil</title>
+
+  <!-- ========================================
+       FONTES
+  ========================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ========================================
+       ÍCONES
+  ========================================= -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- ========================================
+       CSS
+  ========================================= -->
+  <link rel="stylesheet" href="css/perfil.css" />
+</head>
+<body>
+  <div class="profile-page">
+    <!-- ========================================
+         SIDEBAR SIMPLES
+    ========================================= -->
+    <aside class="profile-sidebar">
+      <div class="brand-area">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="brand-sun"></span>
+          <span class="brand-wave brand-wave-1"></span>
+          <span class="brand-wave brand-wave-2"></span>
+        </div>
+        <h1>Fluir</h1>
+      </div>
+
+      <nav class="profile-nav">
+        <a href="home.html" class="nav-link">
+          <i class="bi bi-house-door"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="meu-dia.html" class="nav-link">
+          <i class="bi bi-sun"></i>
+          <span>Meu dia</span>
+        </a>
+
+        <a href="tarefas.html" class="nav-link">
+          <i class="bi bi-check2-square"></i>
+          <span>Tarefas</span>
+        </a>
+
+        <a href="historico.html" class="nav-link">
+          <i class="bi bi-clock-history"></i>
+          <span>Histórico</span>
+        </a>
+
+        <a href="perfil.html" class="nav-link active">
+          <i class="bi bi-person"></i>
+          <span>Perfil</span>
+        </a>
+
+        <a href="configuracoes.html" class="nav-link">
+          <i class="bi bi-gear"></i>
+          <span>Configurações</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+    <main class="profile-main">
+      <header class="profile-header">
+        <div>
+          <p class="eyebrow">Seu espaço pessoal</p>
+          <h2>Perfil</h2>
+        </div>
+
+        <button type="button" class="secondary-btn" id="backHomeBtn">
+          <i class="bi bi-arrow-left"></i>
+          Voltar para início
+        </button>
+      </header>
+
+     <section class="profile-layout">
+  <!-- ========================================
+       CARD VISUAL DO PERFIL
+  ========================================= -->
+  <article class="profile-visual-card">
+    <div class="profile-avatar-large" id="profileAvatarLarge">
+      <div class="avatar-stack large-avatar" id="profileAvatarStack">
+        <img id="profileLayerBase" alt="" />
+        <img id="profileLayerSkin" alt="" />
+        <img id="profileLayerEarLeft" alt="" />
+        <img id="profileLayerEarRight" alt="" />
+        <img id="profileLayerEyeLeft" alt="" />
+        <img id="profileLayerEyeRight" alt="" />
+        <img id="profileLayerNose" alt="" />
+        <img id="profileLayerMouth" alt="" />
+        <img id="profileLayerHair" alt="" />
+        <img id="profileLayerShirt" alt="" />
+      </div>
+    </div>
+
+    <strong id="profileDisplayName">Usuário</strong>
+    <span id="profileDisplayPronoun">Pronome</span>
+
+    <div class="profile-highlight-list">
+      <div class="profile-highlight-item">
+        <span>Foco principal</span>
+        <strong id="profileDisplayFocus">Não definido</strong>
+      </div>
+
+      <div class="profile-highlight-item">
+        <span>Energia</span>
+        <strong id="profileDisplayEnergy">Não definida</strong>
+      </div>
+
+      <div class="profile-highlight-item">
+        <span>Tempo disponível</span>
+        <strong id="profileDisplayTime">Não definido</strong>
+      </div>
+    </div>
+
+    <p class="profile-soft-message">
+      Seu perfil ajuda o Fluir a organizar seu dia com mais sentido.
+    </p>
+  </article>
+
+  <!-- ========================================
+       ÁREA DIREITA
+  ========================================= -->
+  <div class="profile-right-column">
+    <!-- ========================================
+         INFORMAÇÕES PESSOAIS
+    ========================================= -->
+    <article class="profile-form-card">
+      <div class="section-header">
+        <h3>Informações pessoais</h3>
+        <p>Atualize seus dados principais sempre que quiser.</p>
+      </div>
+
+      <form id="profileForm" class="profile-form" novalidate>
+        <div class="form-grid">
+          <div class="field full-width">
+            <label for="profileFullName">Nome completo</label>
+            <div class="input-wrap">
+              <i class="bi bi-person-vcard"></i>
+              <input type="text" id="profileFullName" placeholder="Seu nome completo" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="profileName">Como quer ser chamado?</label>
+            <div class="input-wrap">
+              <i class="bi bi-person"></i>
+              <input type="text" id="profileName" placeholder="Ex: Alex" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="profilePronoun">Pronome</label>
+            <div class="input-wrap">
+              <i class="bi bi-chat-left-text"></i>
+              <select id="profilePronoun">
+                <option value="">Selecione</option>
+                <option value="ele/dele">Ele/Dele</option>
+                <option value="ela/dela">Ela/Dela</option>
+                <option value="elu/delu">Elu/Delu</option>
+                <option value="prefiro nao informar">Prefiro não informar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="profileFocus">Foco principal</label>
+            <div class="input-wrap">
+              <i class="bi bi-stars"></i>
+              <select id="profileFocus">
+                <option value="">Selecione</option>
+                <option value="estudos">Estudos</option>
+                <option value="trabalho">Trabalho</option>
+                <option value="rotina pessoal">Rotina pessoal</option>
+                <option value="saude e bem-estar">Saúde e bem-estar</option>
+                <option value="organizacao geral">Organização geral</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="profileEnergy">Energia</label>
+            <div class="input-wrap">
+              <i class="bi bi-lightning-charge"></i>
+              <select id="profileEnergy">
+                <option value="">Selecione</option>
+                <option value="baixa">Baixa</option>
+                <option value="media">Média</option>
+                <option value="alta">Alta</option>
+                <option value="varia bastante">Varia bastante</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field full-width">
+            <label for="profileAvailableTime">Tempo disponível</label>
+            <div class="input-wrap">
+              <i class="bi bi-hourglass-split"></i>
+              <select id="profileAvailableTime">
+                <option value="">Selecione</option>
+                <option value="15 min">15 min</option>
+                <option value="30 min">30 min</option>
+                <option value="45 min">45 min</option>
+                <option value="1 hora">1 hora</option>
+                <option value="1h30">1h30</option>
+                <option value="2 horas">2 horas</option>
+                <option value="3 horas">3 horas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="profileMessage" class="form-message" aria-live="polite"></div>
+
+        <div class="profile-actions">
+          <button type="submit" class="primary-btn">Salvar informações</button>
+        </div>
+      </form>
+    </article>
+
+    <!-- ========================================
+         EDITOR DO BONEQUINHO
+    ========================================= -->
+    <article class="profile-form-card">
+      <div class="section-header">
+        <h3>Editar bonequinho</h3>
+        <p>Monte o avatar do seu jeito e salve no seu perfil.</p>
+      </div>
+
+      <div class="avatar-editor">
+        <div class="avatar-tabs">
+          <button type="button" class="avatar-tab active" data-tab="skin">Pele</button>
+          <button type="button" class="avatar-tab" data-tab="hair">Cabelo</button>
+          <button type="button" class="avatar-tab" data-tab="eyes">Olhos</button>
+          <button type="button" class="avatar-tab" data-tab="ear">Orelha</button>
+          <button type="button" class="avatar-tab" data-tab="nose">Nariz</button>
+          <button type="button" class="avatar-tab" data-tab="mouth">Boca</button>
+          <button type="button" class="avatar-tab" data-tab="shirt">Roupa</button>
+        </div>
+
+        <!-- PELE -->
+        <div class="avatar-panel active" data-panel="skin">
+          <div class="avatar-option-group">
+            <h4>Tom de pele</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="skin" data-avatar-value="skin-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="skin" data-avatar-value="skin-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="skin" data-avatar-value="skin-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="skin" data-avatar-value="skin-4"><span>4</span></button>
+              <button type="button" class="choice-card" data-avatar-field="skin" data-avatar-value="skin-5"><span>5</span></button>
+              <button type="button" class="choice-card" data-avatar-field="skin" data-avatar-value="skin-6"><span>6</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CABELO -->
+        <div class="avatar-panel" data-panel="hair">
+          <div class="avatar-option-group">
+            <h4>Modelo</h4>
+            <div class="choice-card-grid">
+              <button type="button" class="choice-card active" data-avatar-field="hairModel" data-avatar-value="short"><span>Curto</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairModel" data-avatar-value="medium"><span>Médio</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairModel" data-avatar-value="wavy"><span>Ondulado</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairModel" data-avatar-value="curly"><span>Cacheado</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairModel" data-avatar-value="coily"><span>Crespo</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairModel" data-avatar-value="afro"><span>Afro</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairModel" data-avatar-value="bun"><span>Coque</span></button>
+            </div>
+          </div>
+
+          <div class="avatar-option-group">
+            <h4>Cor</h4>
+            <div class="choice-card-grid">
+              <button type="button" class="choice-card active" data-avatar-field="hairColor" data-avatar-value="dark"><span>Preto</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairColor" data-avatar-value="brown"><span>Castanho</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairColor" data-avatar-value="light-brown"><span>Castanho claro</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairColor" data-avatar-value="blonde"><span>Loiro</span></button>
+              <button type="button" class="choice-card" data-avatar-field="hairColor" data-avatar-value="ginger"><span>Ruivo</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- OLHOS -->
+        <div class="avatar-panel" data-panel="eyes">
+          <div class="avatar-option-group">
+            <h4>Olho esquerdo</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="eyeLeft" data-avatar-value="eye-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="eyeLeft" data-avatar-value="eye-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="eyeLeft" data-avatar-value="eye-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="eyeLeft" data-avatar-value="eye-4"><span>4</span></button>
+            </div>
+          </div>
+
+          <div class="avatar-option-group">
+            <h4>Olho direito</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="eyeRight" data-avatar-value="eye-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="eyeRight" data-avatar-value="eye-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="eyeRight" data-avatar-value="eye-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="eyeRight" data-avatar-value="eye-4"><span>4</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ORELHA -->
+        <div class="avatar-panel" data-panel="ear">
+          <div class="avatar-option-group">
+            <h4>Orelha esquerda</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="earLeft" data-avatar-value="ear-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="earLeft" data-avatar-value="ear-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="earLeft" data-avatar-value="ear-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="earLeft" data-avatar-value="ear-4"><span>4</span></button>
+            </div>
+          </div>
+
+          <div class="avatar-option-group">
+            <h4>Orelha direita</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="earRight" data-avatar-value="ear-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="earRight" data-avatar-value="ear-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="earRight" data-avatar-value="ear-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="earRight" data-avatar-value="ear-4"><span>4</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NARIZ -->
+        <div class="avatar-panel" data-panel="nose">
+          <div class="avatar-option-group">
+            <h4>Nariz</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="nose" data-avatar-value="nose-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="nose" data-avatar-value="nose-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="nose" data-avatar-value="nose-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="nose" data-avatar-value="nose-4"><span>4</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOCA -->
+        <div class="avatar-panel" data-panel="mouth">
+          <div class="avatar-option-group">
+            <h4>Boca</h4>
+            <div class="choice-card-grid small-grid">
+              <button type="button" class="choice-card active" data-avatar-field="mouth" data-avatar-value="mouth-1"><span>1</span></button>
+              <button type="button" class="choice-card" data-avatar-field="mouth" data-avatar-value="mouth-2"><span>2</span></button>
+              <button type="button" class="choice-card" data-avatar-field="mouth" data-avatar-value="mouth-3"><span>3</span></button>
+              <button type="button" class="choice-card" data-avatar-field="mouth" data-avatar-value="mouth-4"><span>4</span></button>
+              <button type="button" class="choice-card" data-avatar-field="mouth" data-avatar-value="mouth-5"><span>5</span></button>
+              <button type="button" class="choice-card" data-avatar-field="mouth" data-avatar-value="mouth-6"><span>6</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROUPA -->
+        <div class="avatar-panel" data-panel="shirt">
+          <div class="avatar-option-group">
+            <h4>Modelo</h4>
+            <div class="choice-card-grid">
+              <button type="button" class="choice-card active" data-avatar-field="shirtModel" data-avatar-value="basic"><span>Básica</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtModel" data-avatar-value="t-shirt"><span>Camiseta</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtModel" data-avatar-value="hoodie"><span>Moletom</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtModel" data-avatar-value="tank"><span>Regata</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtModel" data-avatar-value="sweater"><span>Manga longa</span></button>
+            </div>
+          </div>
+
+          <div class="avatar-option-group">
+            <h4>Cor</h4>
+            <div class="choice-card-grid">
+              <button type="button" class="choice-card active" data-avatar-field="shirtColor" data-avatar-value="beige"><span>Bege</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="brown"><span>Marrom</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="black"><span>Preto</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="white"><span>Branco</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="gray"><span>Cinza</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="green"><span>Verde</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="blue"><span>Azul</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="pink"><span>Rosa</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="lavender"><span>Lavanda</span></button>
+              <button type="button" class="choice-card" data-avatar-field="shirtColor" data-avatar-value="yellow"><span>Amarelo</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="avatarMessage" class="form-message" aria-live="polite"></div>
+
+        <div class="profile-actions">
+          <button type="button" class="secondary-btn" id="randomAvatarBtn">Aleatório</button>
+          <button type="button" class="primary-btn" id="saveAvatarBtn">Salvar bonequinho</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+        <!-- ========================================
+             CARD VISUAL DO PERFIL
+        ========================================= -->
+        <article class="profile-visual-card">
+          <div class="profile-avatar-large" id="profileAvatarLarge">
+            <i class="bi bi-person-circle"></i>
+          </div>
+
+          <strong id="profileDisplayName">Usuário</strong>
+          <span id="profileDisplayPronoun">Pronome</span>
+
+          <div class="profile-highlight-list">
+            <div class="profile-highlight-item">
+              <span>Foco principal</span>
+              <strong id="profileDisplayFocus">Não definido</strong>
+            </div>
+
+            <div class="profile-highlight-item">
+              <span>Energia</span>
+              <strong id="profileDisplayEnergy">Não definida</strong>
+            </div>
+
+            <div class="profile-highlight-item">
+              <span>Tempo disponível</span>
+              <strong id="profileDisplayTime">Não definido</strong>
+            </div>
+          </div>
+
+          <p class="profile-soft-message">
+            Seu perfil ajuda o Fluir a organizar seu dia com mais sentido.
+          </p>
+        </article>
+
+        <!-- ========================================
+             FORMULÁRIO DE EDIÇÃO
+        ========================================= -->
+        <article class="profile-form-card">
+          <div class="section-header">
+            <h3>Editar informações</h3>
+            <p>Atualize seus dados sempre que quiser. Depois ligamos aqui a edição do bonequinho.</p>
+          </div>
+
+          <form id="profileForm" class="profile-form" novalidate>
+            <div class="form-grid">
+              <div class="field full-width">
+                <label for="profileFullName">Nome completo</label>
+                <div class="input-wrap">
+                  <i class="bi bi-person-vcard"></i>
+                  <input type="text" id="profileFullName" placeholder="Seu nome completo" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="profileName">Como quer ser chamado?</label>
+                <div class="input-wrap">
+                  <i class="bi bi-person"></i>
+                  <input type="text" id="profileName" placeholder="Ex: Alex" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="profilePronoun">Pronome</label>
+                <div class="input-wrap">
+                  <i class="bi bi-chat-left-text"></i>
+                  <select id="profilePronoun">
+                    <option value="">Selecione</option>
+                    <option value="ele/dele">Ele/Dele</option>
+                    <option value="ela/dela">Ela/Dela</option>
+                    <option value="elu/delu">Elu/Delu</option>
+                    <option value="prefiro nao informar">Prefiro não informar</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="profileFocus">Foco principal</label>
+                <div class="input-wrap">
+                  <i class="bi bi-stars"></i>
+                  <select id="profileFocus">
+                    <option value="">Selecione</option>
+                    <option value="estudos">Estudos</option>
+                    <option value="trabalho">Trabalho</option>
+                    <option value="rotina pessoal">Rotina pessoal</option>
+                    <option value="saude e bem-estar">Saúde e bem-estar</option>
+                    <option value="organizacao geral">Organização geral</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="profileEnergy">Energia</label>
+                <div class="input-wrap">
+                  <i class="bi bi-lightning-charge"></i>
+                  <select id="profileEnergy">
+                    <option value="">Selecione</option>
+                    <option value="baixa">Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                    <option value="varia bastante">Varia bastante</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field full-width">
+                <label for="profileAvailableTime">Tempo disponível</label>
+                <div class="input-wrap">
+                  <i class="bi bi-hourglass-split"></i>
+                  <select id="profileAvailableTime">
+                    <option value="">Selecione</option>
+                    <option value="15 min">15 min</option>
+                    <option value="30 min">30 min</option>
+                    <option value="45 min">45 min</option>
+                    <option value="1 hora">1 hora</option>
+                    <option value="1h30">1h30</option>
+                    <option value="2 horas">2 horas</option>
+                    <option value="3 horas">3 horas</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="profileMessage" class="form-message" aria-live="polite"></div>
+
+            <div class="profile-actions">
+              <button type="submit" class="primary-btn">
+                Salvar alterações
+              </button>
+
+              <button type="button" class="secondary-btn" id="editAvatarBtn">
+                Editar bonequinho depois
+              </button>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/perfil.js"></script>
+</body>
+</html>

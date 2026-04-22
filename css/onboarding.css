@@ -1,5 +1,6 @@
 /* ========================================
    VARIÁVEIS DO ONBOARDING
+   Cores, sombras, bordas e medidas gerais
 ======================================== */
 :root {
   --bg: #f7f1ed;
@@ -43,7 +44,7 @@ select {
 }
 
 /* ========================================
-   ESTRUTURA GERAL
+   ESTRUTURA GERAL DA PÁGINA
 ======================================== */
 .onboarding-page {
   min-height: 100vh;
@@ -148,6 +149,14 @@ select {
   padding: 28px;
 }
 
+/* ========================================
+   TOPO DAS ETAPAS
+   Badge da etapa + barra de progresso
+======================================== */
+.step-topbar {
+  margin-bottom: 26px;
+}
+
 .step-badge {
   display: inline-flex;
   align-items: center;
@@ -157,92 +166,86 @@ select {
   color: var(--title);
   font-size: 0.92rem;
   font-weight: 600;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
-/* ========================================
-   GRID PRINCIPAL
-======================================== */
-.grid {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
-/* ========================================
-   CARD DE FOTO
-======================================== */
-.photo-card {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 22px;
-  box-shadow: var(--shadow-md);
-}
-
-.photo-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-}
-
-.photo-preview {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px dashed #d8c3b4;
-  background: #f9f4f1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #efe3db;
   overflow: hidden;
 }
 
-.photo-preview i {
-  font-size: 4rem;
-  color: #b38c74;
-}
-
-.photo-preview img {
-  width: 100%;
+.progress-fill {
+  width: 20%;
   height: 100%;
-  object-fit: cover;
-}
-
-.photo-text {
-  font-weight: 600;
-  color: var(--title);
-}
-
-.photo-helper {
-  text-align: center;
-  margin-top: 10px;
-  color: var(--text-soft);
-  font-size: 0.92rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #cca383 0%, #bc8d6c 100%);
+  transition: 0.3s ease;
 }
 
 /* ========================================
-   CAMPOS DA COLUNA DIREITA
+   FORMULÁRIO EM ETAPAS
 ======================================== */
-.right-column {
+.onboarding-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   ETAPAS
+======================================== */
+.step {
+  display: none;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.step.active {
+  display: flex;
+}
+
+/* ========================================
+   CABEÇALHO DE CADA ETAPA
+======================================== */
+.step-header h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  color: var(--title);
+  margin-bottom: 8px;
+}
+
+.step-header p {
+  color: var(--text-soft);
+  line-height: 1.65;
+  max-width: 760px;
+}
+
+/* ========================================
+   GRID INTERNO DAS ETAPAS
+======================================== */
+.step-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
 
+.step-grid.single-column {
+  grid-template-columns: 1fr;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* ========================================
+   CAMPOS
+======================================== */
 .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-/* Faz os últimos campos ocuparem largura total */
-.field:nth-child(5),
-.field:nth-child(6) {
-  grid-column: 1 / -1;
 }
 
 .field label {
@@ -290,25 +293,206 @@ select {
 }
 
 /* ========================================
-   AÇÕES FINAIS
+   ETAPA DO AVATAR / BONEQUINHO
 ======================================== */
-.actions {
-  margin-top: 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.avatar-builder-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
 }
 
-.primary-btn {
+/* Card do preview do avatar */
+.avatar-preview-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: var(--shadow-md);
+}
+
+.avatar-preview {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #f9f4f1;
+  border: 2px dashed #d8c3b4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  overflow: hidden;
+}
+
+.avatar-preview svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.avatar-helper-text {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Área dos controles do avatar */
+.avatar-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ========================================
+   EDITOR DO AVATAR EM ABAS
+======================================== */
+.avatar-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.avatar-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.avatar-tab {
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--title);
+  font-weight: 600;
+  transition: 0.22s ease;
+}
+
+.avatar-tab:hover {
+  background: #f6ede8;
+}
+
+.avatar-tab.active {
+  background: #f5ece7;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(199, 155, 124, 0.10);
+}
+
+.avatar-panel {
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.avatar-panel.active {
+  display: flex;
+}
+
+.random-avatar-btn {
+  width: 100%;
+  margin-top: 14px;
+}
+/* ========================================
+   OPÇÕES VISUAIS DO AVATAR (ESTILO PICREW)
+======================================== */
+.avatar-option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avatar-option-group h4 {
+  font-size: 0.98rem;
+  color: var(--title);
+  font-weight: 700;
+}
+
+.avatar-choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.choice-swatch {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-md);
+  transition: 0.22s ease;
+  padding: 0;
+  cursor: pointer;
+}
+
+.choice-swatch:hover {
+  transform: translateY(-2px);
+}
+
+.choice-swatch.active {
+  border-color: var(--title);
+  transform: scale(1.06);
+}
+
+.choice-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.choice-card {
+  min-height: 58px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--title);
+  font-weight: 600;
+  padding: 12px;
+  box-shadow: var(--shadow-md);
+  transition: 0.22s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.choice-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.choice-card.active {
+  border-color: var(--primary);
+  background: #f7eee8;
+  box-shadow: 0 0 0 3px rgba(199, 155, 124, 0.12);
+}
+
+/* ========================================
+   AÇÕES DAS ETAPAS
+======================================== */
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.primary-btn,
+.secondary-btn {
   height: 56px;
-  border: none;
   border-radius: 14px;
-  background: linear-gradient(180deg, #cca383 0%, #bc8d6c 100%);
-  color: #fff;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
   transition: 0.22s ease;
+  border: none;
+  padding: 0 20px;
+}
+
+.primary-btn {
+  background: linear-gradient(180deg, #cca383 0%, #bc8d6c 100%);
+  color: #fff;
   box-shadow: 0 14px 24px rgba(188, 141, 108, 0.20);
 }
 
@@ -317,8 +501,17 @@ select {
   background: linear-gradient(180deg, #c39676 0%, #b68361 100%);
 }
 
+.secondary-btn {
+  background: #f5ece7;
+  color: var(--title);
+}
+
+.secondary-btn:hover {
+  background: #ead9cd;
+}
+
 /* ========================================
-   MENSAGENS
+   MENSAGEM GERAL
 ======================================== */
 .form-message {
   min-height: 22px;
@@ -326,6 +519,7 @@ select {
   padding: 12px 14px;
   display: none;
   font-size: 0.95rem;
+  margin-top: 18px;
 }
 
 .form-message.show {
@@ -374,18 +568,25 @@ select {
    RESPONSIVIDADE
 ======================================== */
 @media (max-width: 900px) {
-  .grid {
+  .step-grid {
     grid-template-columns: 1fr;
   }
 
-  .right-column {
-    grid-template-columns: 1fr;
-  }
-
-  .field:nth-child(5),
-  .field:nth-child(6) {
+  .full-width {
     grid-column: auto;
   }
+
+  .avatar-builder-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-card-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
 }
 
 @media (max-width: 640px) {
@@ -400,4 +601,22 @@ select {
   .onboarding-card {
     padding: 18px;
   }
+
+  .step-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .step-actions {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .choice-card-grid {
+  grid-template-columns: 1fr;
+}
+
 }
