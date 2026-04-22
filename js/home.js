@@ -2,6 +2,21 @@ const welcomeTitle = document.getElementById("welcomeTitle");
 const sidebarName = document.getElementById("sidebarName");
 const sidebarPronoun = document.getElementById("sidebarPronoun");
 const sidebarAvatar = document.getElementById("sidebarAvatar");
+
+/* ========================================
+   CAMADAS DO AVATAR NA SIDEBAR
+======================================== */
+const homeLayerBase = document.getElementById("homeLayerBase");
+const homeLayerSkin = document.getElementById("homeLayerSkin");
+const homeLayerEarLeft = document.getElementById("homeLayerEarLeft");
+const homeLayerEarRight = document.getElementById("homeLayerEarRight");
+const homeLayerEyeLeft = document.getElementById("homeLayerEyeLeft");
+const homeLayerEyeRight = document.getElementById("homeLayerEyeRight");
+const homeLayerNose = document.getElementById("homeLayerNose");
+const homeLayerMouth = document.getElementById("homeLayerMouth");
+const homeLayerHair = document.getElementById("homeLayerHair");
+const homeLayerShirt = document.getElementById("homeLayerShirt");
+
 const sidebarFocus = document.getElementById("sidebarFocus");
 const sidebarEnergy = document.getElementById("sidebarEnergy");
 const sidebarSoftText = document.getElementById("sidebarSoftText");

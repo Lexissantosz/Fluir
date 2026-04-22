@@ -62,7 +62,7 @@ function getStoredProfile() {
   try {
     return JSON.parse(raw);
   } catch (error) {
-    console.error("Error reading profile:", error);
+    console.error("Erro ao ler perfil:", error);
     return null;
   }
 }
@@ -215,14 +215,14 @@ function saveAvatar() {
   const profile = getStoredProfile();
 
   if (!profile) {
-    showMessage("Profile not found.");
+    showMessage("Perfil não encontrado.");
     return;
   }
 
   profile.avatar = { ...avatarState };
   saveProfile(profile);
 
-  showMessage("Avatar saved successfully.", "success");
+  showMessage("Foto de perfil salva com sucesso.", "success");
 }
 
 /* ========================================
